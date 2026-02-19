@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loyalty Points Hub</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Loyalty Points Hub</h1>
+      <p>Track cards, balances, and discover the best use of your reward points.</p>
+    </header>
+
+    <main>
+      <section class="card" id="auth-card">
+        <h2>Login / Signup</h2>
+        <form id="auth-form">
+          <label for="email">Email</label>
+          <input id="email" type="email" required />
+
+          <label for="password">Password</label>
+          <input id="password" type="password" minlength="4" required />
+
+          <div class="row">
+            <button type="button" id="signup-btn">Sign Up</button>
+            <button type="button" id="login-btn">Login</button>
+            <button type="button" id="logout-btn" class="secondary" hidden>Logout</button>
+          </div>
+        </form>
+        <p id="auth-status" class="status">No active session.</p>
+      </section>
+
+      <section class="card" id="card-manager" hidden>
+        <h2>Add Credit Cards</h2>
+        <form id="card-form">
+          <label for="card-name">Card Name</label>
+          <input id="card-name" type="text" placeholder="e.g. Chase Sapphire" required />
+
+          <label for="card-points">Points Balance</label>
+          <input id="card-points" type="number" min="0" step="1" required />
+
+          <button type="submit">Add / Update Card</button>
+        </form>
+
+        <ul id="card-list"></ul>
+      </section>
+
+      <section class="card" id="dashboard" hidden>
+        <h2>Dashboard</h2>
+        <div class="dashboard-grid">
+          <article>
+            <h3>Total Cards</h3>
+            <p id="total-cards">0</p>
+          </article>
+          <article>
+            <h3>Total Points</h3>
+            <p id="total-points">0</p>
+          </article>
+          <article>
+            <h3>Top Card</h3>
+            <p id="top-card">—</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card" id="chat-panel" hidden>
+        <h2>Points Assistant</h2>
+        <div id="chat-log" class="chat-log" aria-live="polite"></div>
+        <form id="chat-form" class="chat-form">
+          <input id="chat-input" type="text" placeholder="Ask: What can I do with 80k points?" required />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
